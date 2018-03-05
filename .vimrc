@@ -8,13 +8,12 @@ set shiftwidth=2 " When indenting with '>', use 2 spaces width
 set softtabstop=2 " When indenting with '>', use 2 spaces width
 set expandtab " On pressing tab, insert 2 spaces
 
-" Use the Solarized Dark theme
+" set theme
 set background=dark
 let g:solarized_termtrans=1
-colorscheme solarized " Set color scheme
+colorscheme happy_hacking " Set color scheme
 
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
+set backupskip=/tmp/*,/private/tmp/* " Don’t create backups when editing files in certain directories
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
@@ -79,14 +78,23 @@ set foldenable " Enable folding
 set foldlevelstart=10 " Open most folds by default
 set foldnestmax=10 " 10 nested fold max
 
+" Map Ctrl + / for toggle comment
+if has('win32')
+  nmap <C-/> <leader>c<Space>
+  vmap <C-/> <leader>c<Space>
+else
+  nmap <C-_> <leader>c<Space>
+  vmap <C-_> <leader>c<Space>
+endif
+
 " Space open/closes folds z > a
-nnoremap <space> za
+nnoremap <space> za 
 
 set foldmethod=indent " Fold based on indent level
 
 " move vertically by visual line
-" nnoremap j gj
-" nnoremap k gk
+nnoremap j gj
+nnoremap k gk
 
 " highlight last inserted text
 nnoremap gV `[v`]
@@ -97,12 +105,12 @@ if has('python3')
   let g:gundo_prefer_python3 = 1
 endif
 
-" Save session \ > s
+" Save session \ > s 
 " Reopen vim with vim -S
 nnoremap <leader>s :mksession<CR>
 
 " open ag.vim
-" nnoremap <leader>a :Ack
+nnoremap <leader>a :Ack
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
