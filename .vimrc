@@ -119,3 +119,7 @@ function TrimWhiteSpace()
 map <F2> :call TrimWhiteSpace()<CR>
 map! <F2> :call TrimWhiteSpace()<CR>
 set list lcs=trail:›
+
+" vim-javascript plugin
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
