@@ -123,3 +123,6 @@ set list lcs=trail:›
 " vim-javascript plugin
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
+
+" Spell check to F6
+map <F6> :setlocal spell! spelllang=en_us<CR>
