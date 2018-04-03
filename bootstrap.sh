@@ -10,4 +10,9 @@ sudo apt-get upgrade       # Strictly upgrades the current packages
 sudo apt-get dist-upgrade  # Installs updates (new ones)
 
 echo "Install system dependencies..."
-sudo apt install git vim vim-gnome curl
+sudo apt install \
+  git \
+  vim \
+  vim-gnome \
+  curl \
+  ack-grep
