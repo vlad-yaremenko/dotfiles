@@ -12,7 +12,9 @@ set tabstop=2 shiftwidth=2 expandtab
 set background=dark
 let g:solarized_termtrans=1
 " Set color scheme
-colorscheme happy_hacking
+colorscheme deus
+" Allow transparent background
+hi Normal guibg=NONE ctermbg=NONE
 " Add the g flag to search/replace by default
 set gdefault
 " Optimize for fast terminal connections

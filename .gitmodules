@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-vue"]
 	path = .vim/bundle/vim-vue
 	url = https://github.com/posva/vim-vue.git
+[submodule ".vim/bundle/vim-deus"]
+	path = .vim/bundle/vim-deus
+	url = https://github.com/ajmwagar/vim-deus.git
