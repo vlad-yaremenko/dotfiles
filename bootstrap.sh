@@ -14,8 +14,6 @@ echo -e "${RED}Install system dependencies...${NC}"
 echo ""
 sudo apt-get install --yes \
   git \
-  vim \
-  vim-gnome \
   curl
 
 echo ""
@@ -63,20 +61,48 @@ echo ""
 cd ~/Projects/dotfiles
 git submodule update --init
 
+
 echo ""
 echo -e "${RED}Create symbol links${NC}"
 echo ""
+
+echo -e "${RED}For .editorconfig${NC}"
+ln -s ~/Projects/dotfiles/.editorconfig ~/.editorconfig
+echo -e "${RED}For .gitconfig${NC}"
+ln -s ~/Projects/dotfiles/.gitconfig ~/.gitconfig
+
+
+echo ""
+echo -e "${RED}Install vim...${NC}"
+echo ""
+sudo apt-get install --yes vim
 
 echo -e "${RED}For .vim folder${NC}"
 ln -s ~/Projects/dotfiles/.vim ~/.vim
 echo -e "${RED}For .vimrc${NC}"
 ln -s ~/Projects/dotfiles/.vimrc ~/.vimrc
+
+
+echo ""
+echo -e "${RED}Install gvim...${NC}"
+echo ""
+sudo apt-get install --yes vim-gnome
+
 echo -e "${RED}For .gvimrc${NC}"
 ln -s ~/Projects/dotfiles/.gvimrc ~/.gvimrc
-echo -e "${RED}For .editorconfig${NC}"
-ln -s ~/Projects/dotfiles/.editorconfig ~/.editorconfig
-echo -e "${RED}For .gitconfig${NC}"
-ln -s ~/Projects/dotfiles/.gitconfig ~/.gitconfig
+
+
+echo ""
+echo -e "${RED}Install neovim...${NC}"
+echo ""
+sudo apt-get install --yes neovim
+
+
+echo ""
+echo -e "${RED}Run autoremove...${NC}"
+echo ""
+sudo apt autoremove --yes
+
 
 echo ""
 echo -e "${RED}Done...${NC}"
