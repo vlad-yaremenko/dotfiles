@@ -14,7 +14,8 @@ echo -e "${RED}Install system dependencies...${NC}"
 echo ""
 sudo apt-get install --yes \
   git \
-  curl
+  curl \
+  ctags
 
 echo ""
 echo -e "${RED}Install slack...${NC}"
@@ -66,9 +67,9 @@ echo ""
 echo -e "${RED}Create symbol links${NC}"
 echo ""
 
-echo -e "${RED}For .editorconfig${NC}"
+echo -e "${RED}Create symbolic link for .editorconfig${NC}"
 ln -s ~/Projects/dotfiles/.editorconfig ~/.editorconfig
-echo -e "${RED}For .gitconfig${NC}"
+echo -e "${RED}Create symbolic link for .gitconfig${NC}"
 ln -s ~/Projects/dotfiles/.gitconfig ~/.gitconfig
 
 
@@ -77,9 +78,9 @@ echo -e "${RED}Install vim...${NC}"
 echo ""
 sudo apt-get install --yes vim
 
-echo -e "${RED}For .vim folder${NC}"
+echo -e "${RED}Create symbolic link for .vim folder${NC}"
 ln -s ~/Projects/dotfiles/.vim ~/.vim
-echo -e "${RED}For .vimrc${NC}"
+echo -e "${RED}Create symbolic link for .vimrc${NC}"
 ln -s ~/Projects/dotfiles/.vimrc ~/.vimrc
 
 
@@ -88,7 +89,7 @@ echo -e "${RED}Install gvim...${NC}"
 echo ""
 sudo apt-get install --yes vim-gnome
 
-echo -e "${RED}For .gvimrc${NC}"
+echo -e "${RED}Create symbolic link for .gvimrc${NC}"
 ln -s ~/Projects/dotfiles/.gvimrc ~/.gvimrc
 
 
@@ -96,6 +97,18 @@ echo ""
 echo -e "${RED}Install neovim...${NC}"
 echo ""
 sudo apt-get install --yes neovim
+
+echo -e "${RED}Create .config folter${NC}"
+mkdir ~/.config
+
+echo -e "${RED}Create nvim folter${NC}"
+mkdir ~/.config/nvim
+
+echo -e "${RED}Create symbolic link for nvim folder${NC}"
+ln -s ~/Projects/dotfiles/.vim/* ~/.config/nvim/
+
+echo -e "${RED}Create symbolic link for init.vim${NC}"
+ln -s ~/Projects/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 
 echo ""

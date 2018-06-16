@@ -29,6 +29,8 @@ set nocompatible
 set number
 " Show command in bottom bar
 set showcmd
+" Enable CTags
+set tags=tags
 " Highlight current line
 set cursorline
 " Visual autocomplete for command menu
@@ -105,6 +107,20 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let NERDTreeShowHidden=1
 
+" NERDTree git plugin
+let g:NERDTreeIndicatorMapCustom = {
+  \ "Modified"  : "✹",
+  \ "Staged"    : "✚",
+  \ "Untracked" : "✭",
+  \ "Renamed"   : "➜",
+  \ "Unmerged"  : "═",
+  \ "Deleted"   : "✖",
+  \ "Dirty"     : "✗",
+  \ "Clean"     : "✔︎",
+  \ 'Ignored'   : '☒',
+  \ "Unknown"   : "?"
+  \ }
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -128,3 +144,6 @@ let g:javascript_plugin_flow = 1
 
 " Spell check to F6
 map <F6> :setlocal spell! spelllang=en_us<CR>
+
+" Tagbar shortcat
+nmap <F8> :TagbarToggle<CR>
