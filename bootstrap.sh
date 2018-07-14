@@ -42,8 +42,14 @@ sudo apt-get install --yes google-chrome-stable
 echo ""
 echo -e "${RED}Install node.js...${NC}"
 echo ""
-curl -sL https://deb.nodesource.com/setup_9.x | sudo bash -
-sudo apt install nodejs
+sudo apt-get install --yes nodejs gcc g++ make
+
+echo ""
+echo -e "${RED}Install Yarn...${NC}"
+echo ""
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get install --yes yarn
 
 echo ""
 echo -e "${RED}Create projects directory${NC}"
@@ -62,7 +68,6 @@ echo ""
 cd ~/Projects/dotfiles
 git submodule update --init
 
-
 echo ""
 echo -e "${RED}Create symbol links${NC}"
 echo ""
@@ -72,17 +77,15 @@ ln -s ~/Projects/dotfiles/.editorconfig ~/.editorconfig
 echo -e "${RED}Create symbolic link for .gitconfig${NC}"
 ln -s ~/Projects/dotfiles/.gitconfig ~/.gitconfig
 
-
 echo ""
 echo -e "${RED}Install vim...${NC}"
 echo ""
 sudo apt-get install --yes vim
 
 echo -e "${RED}Create symbolic link for .vim folder${NC}"
-ln -s ~/Projects/dotfiles/.vim ~/.vim
+mkdir ~/.vim && ln -s ~/Projects/dotfiles/.vim/* ~/.vim/
 echo -e "${RED}Create symbolic link for .vimrc${NC}"
 ln -s ~/Projects/dotfiles/.vimrc ~/.vimrc
-
 
 echo ""
 echo -e "${RED}Install gvim...${NC}"
@@ -92,30 +95,21 @@ sudo apt-get install --yes vim-gnome
 echo -e "${RED}Create symbolic link for .gvimrc${NC}"
 ln -s ~/Projects/dotfiles/.gvimrc ~/.gvimrc
 
-
 echo ""
 echo -e "${RED}Install neovim...${NC}"
 echo ""
 sudo apt-get install --yes neovim
 
-echo -e "${RED}Create .config folter${NC}"
-mkdir ~/.config
-
-echo -e "${RED}Create nvim folter${NC}"
-mkdir ~/.config/nvim
-
 echo -e "${RED}Create symbolic link for nvim folder${NC}"
-ln -s ~/Projects/dotfiles/.vim/* ~/.config/nvim/
+mkdir ~/.config && mkdir ~/.config/nvim && ln -s ~/Projects/dotfiles/.vim/* ~/.config/nvim/
 
 echo -e "${RED}Create symbolic link for init.vim${NC}"
 ln -s ~/Projects/dotfiles/.vimrc ~/.config/nvim/init.vim
-
 
 echo ""
 echo -e "${RED}Run autoremove...${NC}"
 echo ""
 sudo apt autoremove --yes
-
 
 echo ""
 echo -e "${RED}Done...${NC}"
