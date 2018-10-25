@@ -106,6 +106,9 @@ mkdir ~/.config && mkdir ~/.config/nvim && ln -s ~/Projects/dotfiles/.vim/* ~/.c
 echo -e "${RED}Create symbolic link for init.vim${NC}"
 ln -s ~/Projects/dotfiles/.vimrc ~/.config/nvim/init.vim
 
+echo -e "${RED}Create symbolic link for .ctags${NC}"
+ln -s ~/Projects/dotfiles/.ctags ~/.ctags
+
 echo ""
 echo -e "${RED}Run autoremove...${NC}"
 echo ""

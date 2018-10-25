@@ -91,7 +91,8 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " NERD Tree settings
 map <F3> :NERDTreeToggle<CR>
-nmap <leader>j :NERDTreeFind<CR>
+nmap <F3>f :NERDTreeFind<CR>
+nmap <F3>m :NERDTreeMirror<CR>
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 " Use relative line numbers
@@ -147,3 +148,9 @@ map <F6> :setlocal spell! spelllang=en_us<CR>
 
 " Tagbar shortcat
 nmap <F8> :TagbarToggle<CR>
+
+let g:ale_linters = {
+\  'javascript': ['eslint'],
+\}
+
+nnoremap <leader>. :CtrlPTag<cr>
