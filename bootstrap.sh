@@ -23,6 +23,14 @@ echo ""
 sudo snap install slack --classic
 
 echo ""
+echo -e "${RED}Install conky...${NC}"
+echo ""
+sudo apt-get install conky-all
+
+echo -e "${RED}Create symbolic link for .conkyrc${NC}"
+ln -s ~/Projects/dotfiles/.conkyrc ~/.conkyrc
+
+echo ""
 echo -e "${RED}Install skype...${NC}"
 echo ""
 sudo apt-get install -y apt-transport-https
@@ -38,6 +46,12 @@ wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key ad
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 sudo apt-get update
 sudo apt-get install --yes google-chrome-stable
+
+echo ""
+echo -e "${RED}Install telegram...${NC}"
+echo ""
+wget -O- https://telegram.org/dl/desktop/linux | sudo tar xJ -C /opt/
+sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 
 echo ""
 echo -e "${RED}Install node.js...${NC}"
@@ -108,6 +122,9 @@ ln -s ~/Projects/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 echo -e "${RED}Create symbolic link for .ctags${NC}"
 ln -s ~/Projects/dotfiles/.ctags ~/.ctags
+
+echo -e "${RED}Create symbolic link for autostart applications${NC}"
+ln -s ~/Projects/dotfiles/autostart/* ~/.config/autostart/
 
 echo ""
 echo -e "${RED}Run autoremove...${NC}"

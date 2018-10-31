@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=slack
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=slack
+Name=slack
+Comment[en_US]=
+Comment=
+Categories=Network;
+StartupNotify=false
